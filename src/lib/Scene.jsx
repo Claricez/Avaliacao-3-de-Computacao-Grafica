@@ -1,3 +1,4 @@
+import { color } from 'dat.gui';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
@@ -30,8 +31,8 @@ export default class SceneInit {
     this.camera = new THREE.PerspectiveCamera(
       this.fov,
       window.innerWidth / window.innerHeight,
-      1,
-      1000
+      0.1,
+      2000
     );
     this.camera.position.z = 48;
 
@@ -58,18 +59,18 @@ export default class SceneInit {
 
     // directional light - parallel sun rays
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    // this.directionalLight.castShadow = true;
+    this.directionalLight.castShadow = true;
     this.directionalLight.position.set(0, 32, 64);
     this.scene.add(this.directionalLight);
 
     // if window resizes
     window.addEventListener('resize', () => this.onWindowResize(), false);
 
-    // NOTE: Load space background.
-    // this.loader = new THREE.TextureLoader();
-    // this.scene.background = this.loader.load('./pics/space.jpeg');
+    
+    this.loader = new THREE.TextureLoader();
+    this.scene.background = new THREE.Color(0x191970);
 
-    // NOTE: Declare uniforms to pass into glsl shaders.
+
     // this.uniforms = {
     //   u_time: { type: 'f', value: 1.0 },
     //   colorB: { type: 'vec3', value: new THREE.Color(0xfff000) },
@@ -79,7 +80,7 @@ export default class SceneInit {
 
   animate() {
     // NOTE: Window is implied.
-    // requestAnimationFrame(this.animate.bind(this));
+    //requestAnimationFrame(this.animate.bind(this));
     window.requestAnimationFrame(this.animate.bind(this));
     this.render();
     this.stats.update();

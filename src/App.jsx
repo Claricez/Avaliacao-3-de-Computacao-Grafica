@@ -7,7 +7,6 @@ import * as TWEEN from '@tweenjs/tween.js'
 // import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 // import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { GUI } from 'dat.gui';
 
 
 import SceneInit from './lib/Scene';
@@ -26,8 +25,7 @@ function App() {
     // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // test.scene.add(boxMesh);
 
-    //Guia
-    const gui = new GUI();
+   
 
     //Fantasma
     const ghostLoader = new GLTFLoader();
