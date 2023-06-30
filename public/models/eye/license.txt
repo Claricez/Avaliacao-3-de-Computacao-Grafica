@@ -1,0 +1,11 @@
+Model Information:
+* title:	Free 3D Eye Model
+* source:	https://sketchfab.com/3d-models/free-3d-eye-model-b2e0231d007a4e62943e3079ca1ecf9b
+* author:	Johana-PS (https://sketchfab.com/Johana-PS)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Free 3D Eye Model" (https://sketchfab.com/3d-models/free-3d-eye-model-b2e0231d007a4e62943e3079ca1ecf9b) by Johana-PS (https://sketchfab.com/Johana-PS) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

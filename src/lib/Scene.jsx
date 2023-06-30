@@ -53,9 +53,9 @@ export default class SceneInit {
     document.body.appendChild(this.stats.dom);
 
     // ambient light which is for the whole scene
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    this.ambientLight.castShadow = true;
-    this.scene.add(this.ambientLight);
+    // this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    // this.ambientLight.castShadow = true;
+    // this.scene.add(this.ambientLight);
 
     // directional light - parallel sun rays
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -91,6 +91,8 @@ export default class SceneInit {
     // NOTE: Update uniform data on each render.
     // this.uniforms.u_time.value += this.clock.getDelta();
     this.renderer.render(this.scene, this.camera);
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   }
 
   onWindowResize() {
