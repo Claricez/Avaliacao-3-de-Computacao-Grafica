@@ -11,7 +11,7 @@ export default class SceneInit {
     this.renderer = undefined;
 
     // NOTE: Camera params;
-    this.fov = 45;
+    this.fov = 75;
     this.nearPlane = 1;
     this.farPlane = 1000;
     this.canvasId = canvasId;
@@ -68,7 +68,7 @@ export default class SceneInit {
 
     
     this.loader = new THREE.TextureLoader();
-    this.scene.background = new THREE.Color(0x191970);
+    this.scene.background = this.loader.load('./pics/floresta_vermelha.jpg')
 
 
     // this.uniforms = {
