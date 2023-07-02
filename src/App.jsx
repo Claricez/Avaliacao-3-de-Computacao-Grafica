@@ -209,6 +209,12 @@ function App() {
     
     const lampPostLoader = new GLTFLoader()
     lampPostLoader.load('models/lamp_post/scene.gltf', (sceneLamp) => {
+      sceneLamp.scene.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
       sceneLamp.scene.scale.set(30, 30, 30);
       sceneLamp.scene.position.x = 380;
       sceneLamp.scene.position.y = 15;
