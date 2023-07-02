@@ -1,0 +1,11 @@
+Model Information:
+* title:	Medieval House 3
+* source:	https://sketchfab.com/3d-models/medieval-house-3-8cff6714068a4adbb13da2411bd9c2e3
+* author:	Daan van Leeuwen (https://sketchfab.com/superwortel)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Medieval House 3" (https://sketchfab.com/3d-models/medieval-house-3-8cff6714068a4adbb13da2411bd9c2e3) by Daan van Leeuwen (https://sketchfab.com/superwortel) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

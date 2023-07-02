@@ -1,4 +1,3 @@
-import { color } from 'dat.gui';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
@@ -34,7 +33,9 @@ export default class SceneInit {
       0.1,
       2000
     );
-    this.camera.position.z = 48;
+    this.camera.position.x = 600
+    this.camera.position.y = 0
+    this.camera.position.z = -300
 
     // NOTE: Specify a canvas which is already created in the HTML.
     const canvas = document.getElementById(this.canvasId);
