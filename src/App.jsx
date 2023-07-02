@@ -24,24 +24,23 @@ function App() {
 
     const gui = new GUI();
     
+    let mixerGhost
     const ghostLoader = new GLTFLoader();
-    ghostLoader.load('models/ghost_scene/scene.gltf', (sceneGhost) => {
-      sceneGhost.scene.scale.set(40, 40, 40);
-      sceneGhost.scene.position.x = 400;
-      sceneGhost.scene.position.y = 60;
-      sceneGhost.scene.position.z = 60;
-
+    ghostLoader.load('models/chubby_ghost/scene.gltf', (sceneGhost) => {
+      sceneGhost.scene.scale.set(2, 2, 2);
+      sceneGhost.scene.position.x = 0;
+      sceneGhost.scene.position.y = 10;
+      sceneGhost.scene.position.z = 0;
+      
       gui.add(sceneGhost.scene.rotation, 'x', 0, Math.PI).name('Rotation X');
       gui.add(sceneGhost.scene.rotation, 'y', 0, Math.PI).name('Rotation Y');
       gui.add(sceneGhost.scene.rotation, 'z', 0, Math.PI).name('Rotation Z');
       gui.add(sceneGhost.scene.position, 'x', 0, Math.PI).name('Position X');
-
       //SpotLight
       const spotLight = new THREE.SpotLight(0xB80000);
-      spotLight.position.set(sceneGhost.scene.position.x, sceneGhost.scene.position.y+10, sceneGhost.scene.position.z);
+      spotLight.position.set(sceneGhost.scene.position.x, 10, sceneGhost.scene.position.z);
       spotLight.target.position.set(
         sceneGhost.scene.position.x + 50,
-        sceneGhost.scene.position.y - 40,
         sceneGhost.scene.position.z + 140
 
       );
@@ -59,6 +58,14 @@ function App() {
         setInterval(() => {spotLight.intensity = .5}, 2000)
       }
       setInterval(blink, 1500)
+
+      const model = sceneGhost.scene
+
+      mixerGhost = new THREE.AnimationMixer(model);
+      const animation = sceneGhost.animations[0];
+      const actionCandle = mixerGhost.clipAction(animation);
+      
+      actionCandle.play()
 
       sceneGhost.scene.traverse((child) => {
         if (child.isMesh) {
@@ -188,6 +195,12 @@ function App() {
 
     const groundLoader = new GLTFLoader()
     groundLoader.load('models/rocky_ground/scene.gltf', (sceneGround) => {
+      sceneGround.scene.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
       sceneGround.scene.scale.set(1000, 100, 1000);
       sceneGround.scene.position.y = -20;
       groundObject = sceneGround.scene;
@@ -365,6 +378,7 @@ function App() {
       const delta = test.clock.getDelta();
       mixerWitch.update(delta);
       mixerCandle.update(delta)
+      mixerGhost.update(delta)
 
       requestAnimationFrame(animate);
   }

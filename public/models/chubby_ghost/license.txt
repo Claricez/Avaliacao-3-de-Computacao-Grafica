@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chubby Ghost
+* source:	https://sketchfab.com/3d-models/chubby-ghost-753c85362d7446169f1b30d6a2c26d34
+* author:	Elyse Darby (https://sketchfab.com/elysed)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chubby Ghost" (https://sketchfab.com/3d-models/chubby-ghost-753c85362d7446169f1b30d6a2c26d34) by Elyse Darby (https://sketchfab.com/elysed) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
