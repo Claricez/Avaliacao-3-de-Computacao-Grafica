@@ -27,30 +27,25 @@ function App() {
     let mixerGhost
     const ghostLoader = new GLTFLoader();
     ghostLoader.load('models/chubby_ghost/scene.gltf', (sceneGhost) => {
-      sceneGhost.scene.scale.set(2, 2, 2);
-      sceneGhost.scene.position.x = 0;
-      sceneGhost.scene.position.y = 10;
-      sceneGhost.scene.position.z = 0;
-      
+      sceneGhost.scene.scale.set(1, 1, 1);
+      sceneGhost.scene.position.x = 400;
+      sceneGhost.scene.position.y = 60;
+      sceneGhost.scene.position.z = 60;
+
       gui.add(sceneGhost.scene.rotation, 'x', 0, Math.PI).name('Rotation X');
       gui.add(sceneGhost.scene.rotation, 'y', 0, Math.PI).name('Rotation Y');
       gui.add(sceneGhost.scene.rotation, 'z', 0, Math.PI).name('Rotation Z');
       gui.add(sceneGhost.scene.position, 'x', 0, Math.PI).name('Position X');
+
       //SpotLight
       const spotLight = new THREE.SpotLight(0xB80000);
-      spotLight.position.set(sceneGhost.scene.position.x, 10, sceneGhost.scene.position.z);
-      spotLight.target.position.set(
-        sceneGhost.scene.position.x + 50,
-        sceneGhost.scene.position.z + 140
-
-      );
+      spotLight.position.set(sceneGhost.scene.position.x+300, sceneGhost.scene.position.y, sceneGhost.scene.position.z);
+  
       spotLight.castShadow = true;
-      spotLight.penumbra = .1
-      spotLight.angle = Math.PI
       spotLight.shadow.mapSize.width = 1280;
       spotLight.shadow.mapSize.height = 1280;
       spotLight.shadow.camera.near = 0.5;
-      spotLight.shadow.camera.far = 500;
+      spotLight.shadow.camera.far = 4000;
       spotLight.intensity = .5
 
       const blink = () => {
@@ -59,13 +54,6 @@ function App() {
       }
       setInterval(blink, 1500)
 
-      const model = sceneGhost.scene
-
-      mixerGhost = new THREE.AnimationMixer(model);
-      const animation = sceneGhost.animations[0];
-      const actionCandle = mixerGhost.clipAction(animation);
-      
-      actionCandle.play()
 
       sceneGhost.scene.traverse((child) => {
         if (child.isMesh) {
@@ -75,6 +63,12 @@ function App() {
       });
 
       test.scene.add(spotLight);
+
+      const model = sceneGhost.scene
+      mixerGhost = new THREE.AnimationMixer(model);
+      const animation = sceneGhost.animations[0];
+      const actionCandle = mixerGhost.clipAction(animation);
+      actionCandle.play()
 
       ghostObject = sceneGhost.scene;
       test.scene.add(ghostObject);
@@ -216,7 +210,7 @@ function App() {
         }
       });
       sceneLamp.scene.scale.set(30, 30, 30);
-      sceneLamp.scene.position.x = 380;
+      sceneLamp.scene.position.x = 700;
       sceneLamp.scene.position.y = 15;
       sceneLamp.scene.position.z = 40;
 
